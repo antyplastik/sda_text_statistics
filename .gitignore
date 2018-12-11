@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/eclipse,intellij+all
 # Edit at https://www.gitignore.io/?templates=eclipse,intellij+all
 
@@ -102,6 +101,9 @@ local.properties
 gradle/
 build/
 
+# Pid files
+.attach_pid*
+
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
@@ -147,7 +149,7 @@ fabric.properties
 # Ignores the whole .idea folder and all .iml files
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
-.idea/
+#.idea/
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
