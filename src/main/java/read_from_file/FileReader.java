@@ -1,3 +1,5 @@
+package read_from_file;
+
 public class FileReader implements Readable <String> {
     private static FileReader ourInstance = new FileReader();
 

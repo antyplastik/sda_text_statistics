@@ -1,12 +1,24 @@
 import junitparams.JUnitParamsRunner;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import text_analyzers.multiAnalyzer.MultiAnalyzer;
 
 @RunWith(JUnitParamsRunner.class)
-public class StatsTest{
+public class MultiAnalyzerTest {
+
+    private String testString;
+
+    private MultiAnalyzer multiAnalyzer;
+
+    @Before
+    public void TestSetup(){
+
+    }
 
     @Test
     public void testCheckTheNumberOfWordsInTheText(){
+
 
     }
 
@@ -31,13 +43,7 @@ public class StatsTest{
     }
 
     @Test
-    public void testLanguageRecognitionBasedOnText(){
+    public void testGetThe10MostPopularWordsThatAppearedInTheTextOnlyOnce(){
 
     }
-
-    @Test
-    public void testCompareResultsWithDetectLanguageSite(){
-
-    }
-
 }
