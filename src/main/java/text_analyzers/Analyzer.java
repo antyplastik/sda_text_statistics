@@ -1,4 +1,4 @@
-package text_analyzers.multiAnalyzer;
+package text_analyzers;
 
 public interface Analyzer<T> {
 

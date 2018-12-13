@@ -1,14 +1,51 @@
 package text_analyzers;
 
-import text_analyzers.multiAnalyzer.Analyzer;
+import org.apache.commons.math3.util.Precision;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
-public class LetterFrequency implements Analyzer<HashMap<Character,Integer>> {
+public class LetterFrequency implements Analyzer<HashMap<Character, Double>> {
+
+    private HashMap<Character, Double> lettersFreq;
+    private int sumOfSigns;
+
+    public LetterFrequency() {
+        lettersFreq = new HashMap<>();
+    }
 
     @Override
-    public HashMap<Character, Integer> analyze(String string) {
-        return null;
+    public HashMap<Character, Double> analyze(String string) {
+
+        string = string.toLowerCase();
+        this.sumOfSigns = string.length();
+        IntStream stringStream = string.chars();
+        stringStream.forEach(c -> addToHashMap((char) c));
+
+        getLetterFreqPercent(lettersFreq, 4);
+
+        return lettersFreq;
+    }
+
+    private void addToHashMap(Character character) {
+        if (lettersFreq.containsKey(character))
+            lettersFreq.put(character, lettersFreq.get(character) + 1);
+        else
+            lettersFreq.put(character, (double) 1);
+    }
+
+    public HashMap<Character, Double> getLettersFreq() {
+        return lettersFreq;
+    }
+
+    public HashMap<Character, Double> getLetterFreqPercent(HashMap<Character, Double> hashMap, int precision) {
+        HashMap<Character, Double> resultMap = new HashMap<>();
+        for (Map.Entry<Character, Double> entry : hashMap.entrySet())
+            resultMap.put(entry.getKey(), (Precision.round((entry.getValue() * 100) / sumOfSigns, precision)));
+        return resultMap;
     }
 
     @Override

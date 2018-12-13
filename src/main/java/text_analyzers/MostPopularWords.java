@@ -1,15 +1,13 @@
 package text_analyzers;
 
-import text_analyzers.multiAnalyzer.Analyzer;
-
 import java.util.HashMap;
 
 public class MostPopularWords implements Analyzer<HashMap<String, Integer>> {
 
-    private int howMany;
+    private int howManyAppeared;
 
-    public MostPopularWords(int howMany) {
-        this.howMany = howMany;
+    public MostPopularWords(int howManyAppeared) {
+        this.howManyAppeared = howManyAppeared;
     }
 
     @Override
