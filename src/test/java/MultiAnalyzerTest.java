@@ -12,6 +12,8 @@ import text_analyzers.*;
 import text_analyzers.MultiAnalyzer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 @RunWith(JUnitParamsRunner.class)
 public class MultiAnalyzerTest {
@@ -46,16 +48,24 @@ public class MultiAnalyzerTest {
         assertThat(number, is(84));
     }
 
+    @Ignore
     @Test
     public void testCheckTheFrequencyDistributionOfLettersInTheText() {
         LetterFrequency letterFrequency = (LetterFrequency) taskList.get(1);
 
+
     }
 
-    @Ignore
     @Test
     public void testGet10LongestWordsFromText() {
-        taskList.get(2);
+        HashMap<String, Integer> expected = new HashMap<>();
+//        expected.put();
+
+        LongestWords longestWords = (LongestWords) taskList.get(2);
+        ArrayList<String> resultList = longestWords.analyze(testString);
+//        assertThat(resultList, is());
+
+
     }
 
     @Ignore
