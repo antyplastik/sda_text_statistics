@@ -14,6 +14,7 @@ import text_analyzers.MultiAnalyzer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 @RunWith(JUnitParamsRunner.class)
 public class MultiAnalyzerTest {
@@ -59,13 +60,14 @@ public class MultiAnalyzerTest {
     @Test
     public void testGet10LongestWordsFromText() {
         HashMap<String, Integer> expected = new HashMap<>();
-//        expected.put();
 
         LongestWords longestWords = (LongestWords) taskList.get(2);
-        ArrayList<String> resultList = longestWords.analyze(testString);
-//        assertThat(resultList, is());
+        HashMap<String, Integer> resultList = longestWords.analyze(testString);
+        int max = resultList.entrySet().stream().max(Map.Entry.comparingByValue()).get().getValue();
+        int min = resultList.entrySet().stream().min(Map.Entry.comparingByValue()).get().getValue();
 
-
+        assertThat(max, is(10));
+        assertThat(min,is(8));
     }
 
     @Ignore

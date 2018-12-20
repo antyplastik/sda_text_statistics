@@ -1,9 +1,8 @@
 package text_analyzers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.StringWriter;
+import java.util.*;
+import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -11,8 +10,8 @@ import java.util.stream.Stream;
 
 public class LongestWords implements Analyzer<HashMap<String, Integer>> {
 
-    private int howMany;
-    private HashMap<String, Integer> resultMap;
+    private final int howMany;
+    private static HashMap<String, Integer> resultMap;
 
     public LongestWords(int howMany) {
         this.howMany = howMany;
@@ -22,21 +21,25 @@ public class LongestWords implements Analyzer<HashMap<String, Integer>> {
     @Override
     public HashMap<String, Integer> analyze(String string) {
 
-        HashMap<String, Integer> resultMap = new HashMap<>();
+        HashMap<String, Integer> result;
 
-        Stream stringStream = Arrays.stream(string.split(" "))
+        String filteredString = string.chars()
+                .map(x -> !(Character.isLetter(x) || (Character.isWhitespace(x) && x != '\n' && x != ' ')) ? x = ' ' : x)
+                .mapToObj(x->(char) x + "")
+                .collect(Collectors.joining());
+
+        List<String> stringStream = Arrays.stream(filteredString.split(" "))
                 .map(String::toLowerCase)
-                .map(x->addToHashMap(x));
+                .map(x -> addToHashMap(x))
+                .collect(Collectors.toList());
 
-        ArrayList<Integer> numbers = new ArrayList<>();
-                resultMap.entrySet().stream()
-                .map(Map.Entry::getValue)
-                .collect(numbers.add());
+        result = resultMap.entrySet().stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .limit(howMany)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (e1, e2) -> e2, LinkedHashMap::new));
 
-
-
-
-        return resultMap;
+        return result;
     }
 
     private String addToHashMap(String word) {
