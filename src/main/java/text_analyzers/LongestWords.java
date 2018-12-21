@@ -21,11 +21,9 @@ public class LongestWords implements Analyzer<HashMap<String, Integer>> {
     @Override
     public HashMap<String, Integer> analyze(String string) {
 
-        HashMap<String, Integer> result;
-
         String filteredString = string.chars()
                 .map(x -> !(Character.isLetter(x) || (Character.isWhitespace(x) && x != '\n' && x != ' ')) ? x = ' ' : x)
-                .mapToObj(x->(char) x + "")
+                .mapToObj(x -> (char) x + "")
                 .collect(Collectors.joining());
 
         List<String> stringStream = Arrays.stream(filteredString.split(" "))
@@ -33,13 +31,13 @@ public class LongestWords implements Analyzer<HashMap<String, Integer>> {
                 .map(x -> addToHashMap(x))
                 .collect(Collectors.toList());
 
-        result = resultMap.entrySet().stream()
+        resultMap = resultMap.entrySet().stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
                 .limit(howMany)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         (e1, e2) -> e2, LinkedHashMap::new));
 
-        return result;
+        return resultMap;
     }
 
     private String addToHashMap(String word) {
@@ -47,6 +45,10 @@ public class LongestWords implements Analyzer<HashMap<String, Integer>> {
         if (!resultMap.containsKey(word))
             resultMap.put(word, strLen);
         return word;
+    }
+
+    public HashMap<String, Integer> getResultMap() {
+        return resultMap;
     }
 
     @Override

@@ -51,8 +51,10 @@ public class MultiAnalyzerTest {
     public void testCheckTheFrequencyDistributionOfLettersInTheText() {
         LetterFrequency letterFrequency = (LetterFrequency) taskList.get(1); // poprzednio drugi raz wykonywalem analyze i to powodowalo przeklamanie zsumowanych procentow o ponad 21%!
 
-        double expectedValue = letterFrequency.getLettersFreq().values().stream()
-                .mapToDouble(d->d).sum();
+        double expectedValue = letterFrequency.getLettersFreq()
+                .values()
+                .stream()
+                .mapToDouble(d -> d).sum();
 
         assertThat(expectedValue, is(closeTo(100, 0.01)));
 
@@ -61,17 +63,26 @@ public class MultiAnalyzerTest {
     @Test
     public void testGet10LongestWordsFromText() {
         LongestWords longestWords = (LongestWords) taskList.get(2);
-        HashMap<String, Integer> resultList = longestWords.analyze(testString);
-        int max = resultList.entrySet().stream().max(Map.Entry.comparingByValue()).get().getValue();
-        int min = resultList.entrySet().stream().min(Map.Entry.comparingByValue()).get().getValue();
+
+        int max = longestWords.getResultMap()
+                .entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue())
+                .get()
+                .getValue();
+        int min = longestWords.getResultMap()
+                .entrySet()
+                .stream()
+                .min(Map.Entry.comparingByValue())
+                .get()
+                .getValue();
 
         assertThat(max, is(10));
         assertThat(min, is(8));
     }
 
-    @Ignore
     @Test
     public void testGetThe10MostPopularWordsThatAppearedInTheTextOnlyOnce() {
-        taskList.get(3);
+        MostPopularWords mostPopularWords = (MostPopularWords) taskList.get(3);
     }
 }
