@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 public class LongestWords implements Analyzer<HashMap<String, Integer>> {
 
     private final int howMany;
-    private static HashMap<String, Integer> resultMap;
+    private HashMap<String, Integer> resultMap;
 
     public LongestWords(int howMany) {
         this.howMany = howMany;

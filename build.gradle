@@ -20,6 +20,9 @@ dependencies {
     compile group: 'info.picocli', name: 'picocli', version: '3.8.2'
     // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
     compile group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+    // https://mvnrepository.com/artifact/one.util/streamex
+    compile group: 'one.util', name: 'streamex', version: '0.6.1'
+
 }
 
 jar {
