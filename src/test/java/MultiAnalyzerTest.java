@@ -59,7 +59,7 @@ public class MultiAnalyzerTest {
     }
 
     @Test
-    public void testGet10LongestWordsFromText() {
+    public void testGet10LongestWordsThatAppearedInTheTextOnlyOnce() {
         LongestWords longestWords = (LongestWords) taskList.get(2);
 
         int max = longestWords.getWordLengthMap()
@@ -80,7 +80,7 @@ public class MultiAnalyzerTest {
     }
 
     @Test
-    public void testGetThe10MostPopularWordsThatAppearedInTheTextOnlyOnce() {
+    public void testGetThe10MostPopularWordsFromText() {
         MostPopularWords mostPopularWords = (MostPopularWords) taskList.get(3);
 
         int firstValue = mostPopularWords.getResultMap()
@@ -96,7 +96,7 @@ public class MultiAnalyzerTest {
                 .get()
                 .getValue();
 
-        assertThat(firstValue, is(greaterThan(0))); //
+        assertThat(firstValue, is(greaterThan(1))); //
         assertThat(lastValue, is(greaterThan(0))); //
     }
 }
