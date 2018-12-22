@@ -24,11 +24,11 @@ public class LongestWords implements Analyzer<Map<String, Integer>> {
 
         String filteredString = stringFilter(string);
 
-        List<String> stringList = Arrays.stream(filteredString.split(" "))
+        Arrays.stream(filteredString.split(" "))
                 .map(String::toLowerCase)
                 .map(x -> addToWordLengthMap(x))
                 .map(x -> addToWordsRepetitionMap(x))
-                .collect(Collectors.toList());
+                .collect(Collectors.joining());
 
         sortMaps();
 

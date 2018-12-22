@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="62">
+              <caret line="61" column="66" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LongestWords.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+            <state relative-caret-position="375">
+              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1468#1485#0" expanded="true" />
@@ -316,21 +316,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 20h 47m 33s.xml">
-      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 20h 54m 24s.xml">
-      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 20h 55m 47s.xml">
-      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 20h 56m 30s.xml">
-      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 01m 11s.xml">
-      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 01m 59s.xml">
       <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
     </history-entry>
@@ -344,6 +329,21 @@
       <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 09m 50s.xml">
+      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 11m 42s.xml">
+      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 12m 04s.xml">
+      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 12m 48s.xml">
+      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 12m 57s.xml">
+      <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MultiAnalyzerTest_testGet10LongestWordsThatAppearedInTheTextOnlyOnce - 2018.12.22 at 21h 15m 47s.xml">
       <configuration name="MultiAnalyzerTest.testGet10LongestWordsThatAppearedInTheTextOnlyOnce" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -366,8 +366,8 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35152838" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3995633" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35152838" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995633" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24672489" />
@@ -585,17 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#1464#1658#0" expanded="true" />
-            <element signature="e#1657#1658#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/NumberOfWords.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -620,16 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/MultiAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,10 +646,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/MultiAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#1657#1658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="62">
+          <caret line="61" column="66" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -679,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LongestWords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        <state relative-caret-position="375">
+          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1468#1485#0" expanded="true" />
