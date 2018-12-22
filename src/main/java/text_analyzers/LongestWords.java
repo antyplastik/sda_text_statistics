@@ -32,14 +32,13 @@ public class LongestWords implements Analyzer<Map<String, Integer>> {
 
         sortMaps();
 
-        Map<String, Integer> resultMap = wordLengthMap.entrySet().stream()
+        resultMap = wordLengthMap.entrySet().stream()
                 .filter(key -> wordsRepetitionMap.get(key.getKey()).equals(howManyAppeared))
                 .limit(howManyWords)
-                .collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()));
-
-//        this.resultMap = resultMap.entrySet().stream()
-//                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-//                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2)->e1,LinkedHashMap::new));
+                .collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()))
+                .entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
         return resultMap;
     }
