@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 public class FileReader implements Readable<String> {
 
     private String pathToFile;
+    private String detectedOS;
 //
 //    private static FileReader ourInstance = new FileReader();
 //
@@ -17,13 +18,17 @@ public class FileReader implements Readable<String> {
 //    }
 
     public FileReader(String pathToFile) {
-        this.pathToFile = pathToFile;
+        if (checkOS() == "windows")
+            this.pathToFile = pathToFile.replaceAll("/", "\\");
+        else
+            this.pathToFile = pathToFile.replaceAll("\\\\", "/");
     }
 
-    public String checkOS() {
+    private String checkOS() {
         String[] osName = System.getProperty("os.name").split(" ");
-        return osName[0];
+        return detectedOS = osName[0].toLowerCase();
     }
+
 
     @Override
     public String read() {
@@ -38,4 +43,11 @@ public class FileReader implements Readable<String> {
         return readedFile;
     }
 
+    public String getPathToFile() {
+        return pathToFile;
+    }
+
+    public String getDetectedOS() {
+        return detectedOS;
+    }
 }
