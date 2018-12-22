@@ -1,60 +1,53 @@
 package text_analyzers;
 
-import one.util.streamex.EntryStream;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class LongestWords implements Analyzer<HashMap<String, Integer>> {
+public class LongestWords implements Analyzer<Map<String, Integer>> {
 
     private final int howManyWords;
     private int howManyAppeared;
-    private HashMap<String, Integer> resultMap;
+    private Map<String, Integer> wordLengthMap;
+    private Map<String, Integer>
 
     public LongestWords(int howManyAppeared, int howManyWords) {
         this.howManyWords = howManyWords;
         this.howManyAppeared = howManyAppeared;
-        resultMap = new HashMap<>();
+        wordLengthMap = new HashMap<>();
     }
 
     @Override
-    public HashMap<String, Integer> analyze(String string) {
+    public Map<String, Integer> analyze(String string) {
 
         String filteredString = string.chars()
                 .map(x -> !(Character.isLetter(x) || (Character.isWhitespace(x) && x != '\n' && x != ' ')) ? x = ' ' : x)
                 .mapToObj(x -> (char) x + "")
                 .collect(Collectors.joining());
 
-        List<String> stringStream = Arrays.stream(filteredString.split(" "))
+        List<String> stringList = Arrays.stream(filteredString.split(" "))
                 .map(String::toLowerCase)
-                .map(x -> addToHashMap(x))
+                .map(x -> addToWordLengthMap(x))
                 .collect(Collectors.toList());
 
-        resultMap = resultMap.entrySet().stream()
-//                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue())) // this must be .filter
-                .map(entry -> new AbstractMap.SimpleEntry(entry.getKey(), Integer.valueOf(entry.getValue())))
-                .filter(entry -> entry.getValue() == (Integer) howManyAppeared)
+        wordLengthMap = wordLengthMap.entrySet().stream()
+                .filter(map -> map.getValue().equals(howManyAppeared))
                 .limit(howManyWords)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue);
+                .collect(Collectors.toMap(map->map.getKey(),map->map.getValue()));
 
-                resultMap = EntryStream.of(resultMap)
-                        .mapValues(Integer::valueOf)
-                        .filterValues(value->value == howManyAppeared)
-                        .limit(howManyWords)
-                        .toMap();
-
-        return resultMap;
+        return wordLengthMap;
     }
 
-    private String addToHashMap(String word) {
+    private String addToWordLengthMap(String word) {
         int strLen = word.length();
-        if (!resultMap.containsKey(word))
-            resultMap.put(word, strLen);
+        if (!wordLengthMap.containsKey(word))
+            wordLengthMap.put(word, strLen);
         return word;
     }
 
-    public HashMap<String, Integer> getResultMap() {
-        return resultMap;
+    private String addTo
+
+    public Map<String, Integer> getWordLengthMap() {
+        return wordLengthMap;
     }
 
     @Override

@@ -31,8 +31,8 @@ public class MultiAnalyzerTest {
 
         taskList.add(new NumberOfWords());
         taskList.add(new LetterFrequency());
-        taskList.add(new LongestWords(10));
-        taskList.add(new MostPopularWords(1,10));
+        taskList.add(new LongestWords(1,10));
+        taskList.add(new MostPopularWords(10));
 
         multiAnalyzer = new MultiAnalyzer(taskList);
         multiAnalyzer.performAnalyzis(testString);
@@ -62,13 +62,13 @@ public class MultiAnalyzerTest {
     public void testGet10LongestWordsFromText() {
         LongestWords longestWords = (LongestWords) taskList.get(2);
 
-        int max = longestWords.getResultMap()
+        int max = longestWords.getWordLengthMap()
                 .entrySet()
                 .stream()
                 .max(Map.Entry.comparingByValue())
                 .get()
                 .getValue();
-        int min = longestWords.getResultMap()
+        int min = longestWords.getWordLengthMap()
                 .entrySet()
                 .stream()
                 .min(Map.Entry.comparingByValue())
