@@ -1,20 +1,19 @@
 package text_analyzers;
 
-import java.io.StringWriter;
+import one.util.streamex.EntryStream;
+
 import java.util.*;
-import java.util.Map.Entry;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class LongestWords implements Analyzer<HashMap<String, Integer>> {
 
-    private final int howMany;
+    private final int howManyWords;
+    private int howManyAppeared;
     private HashMap<String, Integer> resultMap;
 
-    public LongestWords(int howMany) {
-        this.howMany = howMany;
+    public LongestWords(int howManyAppeared, int howManyWords) {
+        this.howManyWords = howManyWords;
+        this.howManyAppeared = howManyAppeared;
         resultMap = new HashMap<>();
     }
 
@@ -32,10 +31,17 @@ public class LongestWords implements Analyzer<HashMap<String, Integer>> {
                 .collect(Collectors.toList());
 
         resultMap = resultMap.entrySet().stream()
-                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                .limit(howMany)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (e1, e2) -> e2, LinkedHashMap::new));
+//                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue())) // this must be .filter
+                .map(entry -> new AbstractMap.SimpleEntry(entry.getKey(), Integer.valueOf(entry.getValue())))
+                .filter(entry -> entry.getValue() == (Integer) howManyAppeared)
+                .limit(howManyWords)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue);
+
+                resultMap = EntryStream.of(resultMap)
+                        .mapValues(Integer::valueOf)
+                        .filterValues(value->value == howManyAppeared)
+                        .limit(howManyWords)
+                        .toMap();
 
         return resultMap;
     }

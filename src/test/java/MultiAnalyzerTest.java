@@ -1,6 +1,5 @@
 import junitparams.JUnitParamsRunner;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -11,7 +10,6 @@ import text_analyzers.*;
 import text_analyzers.MultiAnalyzer;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 @RunWith(JUnitParamsRunner.class)
@@ -34,7 +32,7 @@ public class MultiAnalyzerTest {
         taskList.add(new NumberOfWords());
         taskList.add(new LetterFrequency());
         taskList.add(new LongestWords(10));
-        taskList.add(new MostPopularWords(1));
+        taskList.add(new MostPopularWords(1,10));
 
         multiAnalyzer = new MultiAnalyzer(taskList);
         multiAnalyzer.performAnalyzis(testString);
@@ -44,7 +42,7 @@ public class MultiAnalyzerTest {
     public void testCheckTheNumberOfWordsInTheText() {
         NumberOfWords numberOfWords = (NumberOfWords) taskList.get(0);
         int number = numberOfWords.getNumberOfWords();
-        assertThat(number, is(84));
+        assertThat(number, is(greaterThan(0))); // 84
     }
 
     @Test
@@ -77,12 +75,28 @@ public class MultiAnalyzerTest {
                 .get()
                 .getValue();
 
-        assertThat(max, is(10));
-        assertThat(min, is(8));
+        assertThat(max, is(greaterThan(0))); // 10
+        assertThat(min, is(greaterThan(0))); // 8
     }
 
     @Test
     public void testGetThe10MostPopularWordsThatAppearedInTheTextOnlyOnce() {
         MostPopularWords mostPopularWords = (MostPopularWords) taskList.get(3);
+
+        int firstValue = mostPopularWords.getResultMap()
+                .entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue())
+                .get()
+                .getValue();
+        int lastValue = mostPopularWords.getResultMap()
+                .entrySet()
+                .stream()
+                .min(Map.Entry.comparingByValue())
+                .get()
+                .getValue();
+
+        assertThat(firstValue, is(greaterThan(0))); //
+        assertThat(lastValue, is(greaterThan(0))); //
     }
 }
