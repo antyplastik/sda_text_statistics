@@ -2,20 +2,21 @@ package text_analyzers;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class LongestWords implements Analyzer<Map<String, Integer>> {
 
     private final int howManyWords;
     private int howManyAppeared;
     private Map<String, Integer> wordLengthMap;
-    private Map<String, Integer> WordsRepetitionMap;
+    private Map<String, Integer> wordsRepetitionMap;
+    private Map<String, Integer> resultMap;
 
     public LongestWords(int howManyAppeared, int howManyWords) {
         this.howManyWords = howManyWords;
         this.howManyAppeared = howManyAppeared;
-        wordLengthMap = new HashMap<>();
-        WordsRepetitionMap = new HashMap<>();
+        this.wordLengthMap = new HashMap<>();
+        this.wordsRepetitionMap = new HashMap<>();
+        this.resultMap = new HashMap<>();
     }
 
     @Override
@@ -31,19 +32,16 @@ public class LongestWords implements Analyzer<Map<String, Integer>> {
 
         sortMaps();
 
-        Map<String, Integer> mergedStreams = Stream.concat(wordLengthMap.entrySet().stream(), WordsRepetitionMap.entrySet().stream())
-                .collect(Collectors.toMap(
-                        entry -> entry.getKey(),
-                        entry -> entry.getValue(),
-                        (wordLengthMap, wordsRepetitionMap) -> wordLengthMap + wordsRepetitionMap
-                ));
-
-        wordLengthMap = wordLengthMap.entrySet().stream()
-                .filter(map -> map.getValue().equals(howManyAppeared))
+        Map<String, Integer> resultMap = wordLengthMap.entrySet().stream()
+                .filter(key -> wordsRepetitionMap.get(key.getKey()).equals(howManyAppeared))
                 .limit(howManyWords)
                 .collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()));
 
-        return wordLengthMap;
+//        this.resultMap = resultMap.entrySet().stream()
+//                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+//                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2)->e1,LinkedHashMap::new));
+
+        return resultMap;
     }
 
 
@@ -55,11 +53,13 @@ public class LongestWords implements Analyzer<Map<String, Integer>> {
     }
 
     private void sortMaps() {
-        wordLengthMap = wordLengthMap.entrySet().stream()
-                .map(Map.Entry.comparingByValue().reversed())
-                .collect();
+        wordLengthMap.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-
+//        this.wordsRepetitionMap = wordsRepetitionMap.entrySet().stream()
+//                .sorted(Map.Entry.comparingByValue())
+//                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2)->e1,LinkedHashMap::new));
     }
 
     private String addToWordLengthMap(String word) {
@@ -70,15 +70,15 @@ public class LongestWords implements Analyzer<Map<String, Integer>> {
     }
 
     private String addToWordsRepetitionMap(String word) {
-        if (!WordsRepetitionMap.containsKey(word))
-            WordsRepetitionMap.put(word, 1);
+        if (!wordsRepetitionMap.containsKey(word))
+            wordsRepetitionMap.put(word, 1);
         else
-            WordsRepetitionMap.put(word, (WordsRepetitionMap.get(word) + 1));
+            wordsRepetitionMap.put(word, (wordsRepetitionMap.get(word) + 1));
         return word;
     }
 
-    public Map<String, Integer> getWordLengthMap() {
-        return wordLengthMap;
+    public Map<String, Integer> getResultMap() {
+        return resultMap;
     }
 
     @Override

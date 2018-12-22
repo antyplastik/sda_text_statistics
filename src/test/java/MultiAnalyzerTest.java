@@ -62,20 +62,20 @@ public class MultiAnalyzerTest {
     public void testGet10LongestWordsThatAppearedInTheTextOnlyOnce() {
         LongestWords longestWords = (LongestWords) taskList.get(2);
 
-        int max = longestWords.getWordLengthMap()
+        int max = longestWords.getResultMap()
                 .entrySet()
                 .stream()
                 .max(Map.Entry.comparingByValue())
                 .get()
                 .getValue();
-        int min = longestWords.getWordLengthMap()
+        int min = longestWords.getResultMap()
                 .entrySet()
                 .stream()
                 .min(Map.Entry.comparingByValue())
                 .get()
                 .getValue();
 
-        assertThat(max, is(greaterThan(0))); // 10
+        assertThat(max, is(greaterThan(min))); // 10
         assertThat(min, is(greaterThan(0))); // 8
     }
 
@@ -96,7 +96,7 @@ public class MultiAnalyzerTest {
                 .get()
                 .getValue();
 
-        assertThat(firstValue, is(greaterThan(1))); //
+        assertThat(firstValue, is(greaterThan(lastValue))); //
         assertThat(lastValue, is(greaterThan(0))); //
     }
 }
