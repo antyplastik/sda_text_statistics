@@ -6,7 +6,7 @@ import java.util.Map;
 public class Language {
 
     private String languageLabel;
-    private Map<String, Double> letterStat;
+    private HashMap<String, Double> letterStat;
 
     public Language(String languageLabel) {
         this.languageLabel = languageLabel;
@@ -26,7 +26,7 @@ public class Language {
 
     }
 
-    public Map<String, Double> getLetterStat() {
+    public HashMap<String, Double> getLetterStat() {
         return letterStat;
     }
 }

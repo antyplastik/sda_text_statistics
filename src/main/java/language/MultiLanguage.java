@@ -13,8 +13,6 @@ public class MultiLanguage {
     }
 
     public void setLanguageListFromFile(String fileString) {
-//        fileString = fileString.replaceAll("%", "");
-
         List<String> line = Arrays.stream(fileString.split("\n"))
                 .collect(Collectors.toList());
 
@@ -38,7 +36,6 @@ public class MultiLanguage {
                 i++;
             }
         }
-        String stop = "";
     }
 
     private void addSignStatsToLangObj(String label, String key, Double value) {
@@ -52,14 +49,12 @@ public class MultiLanguage {
             } else
                 index++;
         }
-
     }
 
     public Language getLanguage(String lang) {
         for (Language language : availableLanguages)
             if (language.getLanguageLabel().equals(lang))
                 return language;
-
         return null;
     }
 

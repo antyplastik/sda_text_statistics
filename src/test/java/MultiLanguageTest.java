@@ -50,4 +50,9 @@ public class MultiLanguageTest {
         assertThat(testLang.getLetterStat(),is(notNullValue()));
     }
 
+    @Test
+    public void checkOptimalizationOfLanguageMap(){
+
+    }
+
 }
