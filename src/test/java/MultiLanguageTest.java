@@ -1,3 +1,4 @@
+import language.Language;
 import language.MultiLanguage;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +38,16 @@ public class MultiLanguageTest {
     public void generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage(){
         MultiLanguage multiLanguageList = new MultiLanguage();
         multiLanguageList.setLanguageListFromFile(languageFile.read());
-        List languages = multiLanguageList.getAvailableLanguages();
+
+        List <Language> languages = multiLanguageList.getAvailableLanguages();
+
+        Language testLang = new Language("Ciapacki");
+
+        for (Language lang : languages)
+            if(lang.getLanguageLabel().equals("Polish"))
+                testLang = lang;
+
+        assertThat(testLang.getLetterStat(),is(notNullValue()));
     }
 
 }
