@@ -55,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="50" column="69" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
+            <state relative-caret-position="258">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,8 +67,32 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+            <state relative-caret-position="270">
+              <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LongestWords.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -248,7 +272,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in sda_text_statistics.text_statistics.test">
+  <component name="RunManager" selected="JUnit.MultiAnalyzerTest.testCheckTheFrequencyDistributionOfLettersInTheText">
     <configuration name="All in sda_text_statistics.text_statistics.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sda_text_statistics.text_statistics.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -265,20 +289,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiLanguageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MultiAnalyzerTest.testCheckTheFrequencyDistributionOfLettersInTheText" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sda_text_statistics.text_statistics.test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MultiLanguageTest" />
+      <option name="MAIN_CLASS_NAME" value="MultiAnalyzerTest" />
+      <option name="METHOD_NAME" value="testCheckTheFrequencyDistributionOfLettersInTheText" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiLanguageTest.checkIfStringReadFromFileIsNotEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MultiLanguageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sda_text_statistics.text_statistics.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MultiLanguageTest" />
-      <option name="METHOD_NAME" value="checkIfStringReadFromFileIsNotEmpty" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -295,11 +319,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MultiAnalyzerTest.testCheckTheFrequencyDistributionOfLettersInTheText" />
         <item itemvalue="JUnit.All in sda_text_statistics.text_statistics.test" />
         <item itemvalue="JUnit.LanguageDetectionTest" />
         <item itemvalue="JUnit.MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" />
         <item itemvalue="JUnit.MultiLanguageTest" />
-        <item itemvalue="JUnit.MultiLanguageTest.checkIfStringReadFromFileIsNotEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -317,12 +341,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 20m 57s.xml">
-      <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 27m 54s.xml">
-      <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_sda_text_statistics_text_statistics_test - 2018.12.23 at 19h 48m 20s.xml">
       <configuration name="All in sda_text_statistics.text_statistics.test" configurationId="JUnit" />
     </history-entry>
@@ -347,6 +365,12 @@
     <history-entry file="All_in_sda_text_statistics_text_statistics_test - 2018.12.23 at 20h 49m 26s.xml">
       <configuration name="All in sda_text_statistics.text_statistics.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_sda_text_statistics_text_statistics_test - 2018.12.23 at 20h 55m 09s.xml">
+      <configuration name="All in sda_text_statistics.text_statistics.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_sda_text_statistics_text_statistics_test - 2018.12.23 at 20h 55m 59s.xml">
+      <configuration name="All in sda_text_statistics.text_statistics.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -368,7 +392,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35152838" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3995633" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3995633" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24672489" />
@@ -389,22 +413,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java</url>
-          <line>62</line>
+          <url>file://$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java</url>
+          <line>50</line>
           <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/text_analyzers/LongestWords.java</url>
-          <line>34</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java</url>
-          <line>29</line>
-          <properties />
-          <option name="timeStamp" value="49" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -566,16 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LongestWords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="40" column="114" lean-forward="true" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="119" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/MostPopularWords.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -630,16 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="17" selection-start-line="17" selection-end-line="22" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MultiLanguageTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -683,8 +675,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="50" column="69" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
+        <state relative-caret-position="258">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LongestWords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -693,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+        <state relative-caret-position="270">
+          <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -25,18 +25,18 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
         stringStream
                 .map(x -> !(Character.isLetter(x) || (Character.isWhitespace(x) && x != '\n' && x != ' ')) ? x = ' ' : x)
                 .map(Character::toUpperCase)
-                .forEach(c -> addToHashMap((char)c));
-        
+                .forEach(c -> addToHashMap((char) c));
+
         lettersFreq = getSignsFreqPercent(lettersFreq, 4);
 
         return lettersFreq;
     }
 
     private void addToHashMap(Character letter) {
-        if (lettersFreq.containsKey(letter))
-            lettersFreq.put(letter + "", lettersFreq.get(letter) + 1);
+        if (lettersFreq.containsKey((letter + "")))
+            lettersFreq.put((letter + ""), lettersFreq.get((letter + "")) + 1);
         else
-            lettersFreq.put(letter + "", (double) 1);
+            lettersFreq.put((letter + ""), (double) 1);
     }
 
     public HashMap<String, Double> getLettersFreq() {
