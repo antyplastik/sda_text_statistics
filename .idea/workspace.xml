@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd456584-c3d7-4c2a-9ced-2d7abc2a7b28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/language/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/language/LanguageDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/LanguageDetection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/language/MultiLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/MultiLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LanguageDetectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/LanguageDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/LanguageDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MultiLanguageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MultiLanguageTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,35 +43,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/MultiLanguageTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/language/MultiLanguage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/language/LanguageDetection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state relative-caret-position="135">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="50" column="69" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,12 +70,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/language/Language.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="330">
               <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#518#519#0" expanded="true" />
-                <element signature="e#554#555#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/main/java/read_from_file/LanguageCSVreader.java" />
         <option value="$PROJECT_DIR$/src/main/java/read_from_file/Readable.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java" />
         <option value="$PROJECT_DIR$/src/main/java/text_analyzers/MostPopularWords.java" />
         <option value="$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/text_analyzers/LongestWords.java" />
@@ -145,9 +140,11 @@
         <option value="$PROJECT_DIR$/src/main/java/read_from_file/FileReader.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/language/MultiLanguage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/language/LanguageDetection.java" />
         <option value="$PROJECT_DIR$/src/main/java/language/Language.java" />
+        <option value="$PROJECT_DIR$/src/main/java/language/LanguageDetection.java" />
         <option value="$PROJECT_DIR$/src/test/java/MultiLanguageTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java" />
       </list>
     </option>
   </component>
@@ -275,6 +272,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LanguageDetectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sda_text_statistics.text_statistics.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LanguageDetectionTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MultiLanguageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sda_text_statistics.text_statistics.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -293,16 +298,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiLanguageTest.checkTheInterpretationOfTheFilePathDependingOnTheSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sda_text_statistics.text_statistics.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MultiLanguageTest" />
-      <option name="METHOD_NAME" value="checkTheInterpretationOfTheFilePathDependingOnTheSystem" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sda_text_statistics.text_statistics.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -316,10 +311,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in sda_text_statistics.text_statistics.test" />
+        <item itemvalue="JUnit.LanguageDetectionTest" />
         <item itemvalue="JUnit.MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" />
         <item itemvalue="JUnit.MultiLanguageTest" />
         <item itemvalue="JUnit.MultiLanguageTest.checkIfStringReadFromFileIsNotEmpty" />
-        <item itemvalue="JUnit.MultiLanguageTest.checkTheInterpretationOfTheFilePathDependingOnTheSystem" />
       </list>
     </recent_temporary>
   </component>
@@ -337,21 +332,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 02m 19s.xml">
-      <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 02m 31s.xml">
-      <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 05m 24s.xml">
-      <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 09m 35s.xml">
-      <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 10m 57s.xml">
-      <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 14m 20s.xml">
       <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
     </history-entry>
@@ -366,6 +346,21 @@
     </history-entry>
     <history-entry file="MultiLanguageTest_generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage - 2018.12.23 at 19h 27m 54s.xml">
       <configuration name="MultiLanguageTest.generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_sda_text_statistics_text_statistics_test - 2018.12.23 at 19h 48m 20s.xml">
+      <configuration name="All in sda_text_statistics.text_statistics.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_sda_text_statistics_text_statistics_test - 2018.12.23 at 20h 19m 18s.xml">
+      <configuration name="All in sda_text_statistics.text_statistics.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LanguageDetectionTest - 2018.12.23 at 20h 19m 54s.xml">
+      <configuration name="LanguageDetectionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LanguageDetectionTest - 2018.12.23 at 20h 20m 32s.xml">
+      <configuration name="LanguageDetectionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LanguageDetectionTest - 2018.12.23 at 20h 20m 59s.xml">
+      <configuration name="LanguageDetectionTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -387,7 +382,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35152838" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35152838" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995633" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -548,24 +543,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/language/ResultComparator.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main_and_user_communication/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -637,16 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="121" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -661,28 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/language/Language.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/language/LanguageDetection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/language/MultiLanguage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -693,10 +639,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MultiAnalyzerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="17" selection-start-line="17" selection-end-line="22" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MultiLanguageTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/builders/JUnit4Builder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/builders/AllDefaultPossibilitiesBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/language/LanguageDetection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/LanguageDetectionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="50" column="69" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/language/Language.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/text_analyzers/LetterFrequency.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -7,6 +7,9 @@ public class LanguageDetection implements Analyzer<String> {
 
     private String detecLanguageUrl = "detectlanguage.com";
 
+    public LanguageDetection() {
+    }
+
     public String offlineAnalyze(LetterFrequency letterFrequency, MultiLanguage multiLanguage) {
 
         letterFrequency.getLettersFreq();
