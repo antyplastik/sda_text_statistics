@@ -7,6 +7,8 @@ import static org.hamcrest.Matchers.*;
 
 import read_from_file.FileReader;
 
+import java.util.List;
+
 public class MultiLanguageTest {
 
     private FileReader languageFile;
@@ -35,7 +37,7 @@ public class MultiLanguageTest {
     public void generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage(){
         MultiLanguage multiLanguageList = new MultiLanguage();
         multiLanguageList.setLanguageListFromFile(languageFile.read());
-
+        List languages = multiLanguageList.getAvailableLanguages();
     }
 
 }

@@ -5,18 +5,17 @@ import java.util.stream.Collectors;
 
 public class MultiLanguage {
 
-    private static List<Language> availabeLanguages;
+    private static List<Language> availableLanguages;
     private final static String csvLineSeparator = ",";
 
     public MultiLanguage() {
-        availabeLanguages = new ArrayList<>();
+        availableLanguages = new ArrayList<>();
     }
 
     public void setLanguageListFromFile(String fileString) {
 //        fileString = fileString.replaceAll("%", "");
 
-        List<String> line = Arrays.stream(fileString.replace("%", "")
-                .split("\n"))
+        List<String> line = Arrays.stream(fileString.split("\n"))
                 .collect(Collectors.toList());
 
         List<String> titleLine = Arrays.stream(line.get(0).split(csvLineSeparator)).collect(Collectors.toList());
@@ -24,34 +23,47 @@ public class MultiLanguage {
         line.set(0, titleLine.stream().collect(Collectors.joining()));
         line.remove(0);
 
-        availabeLanguages = titleLine.stream()
+        availableLanguages = titleLine.stream()
                 .map(s -> new Language(s))
                 .collect(Collectors.toList());
 
         for (String lineStr : line) {
-            List<String> lineStrList = new ArrayList<String>();
-            lineStrList = Arrays.stream(lineStr.split(csvLineSeparator)).collect(Collectors.toList());
+            List<String> lineStrList = Arrays
+                    .stream(lineStr.replaceAll("[$&+:;=?@#|'<>^*()%~!]", "").split(csvLineSeparator))
+                    .collect(Collectors.toList());
             int i = 1;
             for (String languageStr : titleLine) {
-                Language language = getLanguage(languageStr);
-                language.addToLetterStatMap(lineStrList.get(0), Double.parseDouble(lineStrList.get(i)));
+//                getLanguage(languageStr).addToLetterStatMap(lineStrList.get(0), Double.parseDouble(lineStrList.get(i)));
+                addSignStatsToLangObj(languageStr, lineStrList.get(0), Double.parseDouble(lineStrList.get(i)));
                 i++;
             }
         }
         String stop = "";
     }
 
-    private void addSignStatisticsToLanguageObject(){
-        for(Language language : availabeLanguages)
-            ;
+    private void addSignStatsToLangObj(String label, String key, Double value) {
+//        String label = lang.getLanguageLabel();
+        int index = 0;
+        for (Language language : availableLanguages) {
+            if (language.getLanguageLabel().equals(label)) {
+                language.addToLetterStatMap(key, value);
+                this.availableLanguages.set(index, language);
+                break;
+            } else
+                index++;
+        }
 
     }
 
     public Language getLanguage(String lang) {
-        for (Language language : availabeLanguages)
+        for (Language language : availableLanguages)
             if (language.getLanguageLabel().equals(lang))
                 return language;
 
         return null;
+    }
+
+    public List<Language> getAvailableLanguages() {
+        return availableLanguages;
     }
 }
