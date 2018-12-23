@@ -2,7 +2,7 @@ package language;
 
 import text_analyzers.Analyzer;
 
-public class DetectLanguage implements Analyzer<String> {
+public class LanguageDetector implements Analyzer<String> {
 
     private String detecLanguageUrl = "detectlanguage.com";
 

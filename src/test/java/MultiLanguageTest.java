@@ -1,3 +1,4 @@
+import language.MultiLanguage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,6 +29,13 @@ public class MultiLanguageTest {
     @Test
     public void checkIfStringReadFromFileIsNotEmpty(){
         assertThat(StringFromFile, is(notNullValue(null)));
+    }
+
+    @Test
+    public void generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage(){
+        MultiLanguage multiLanguageList = new MultiLanguage();
+        multiLanguageList.setLanguageListFromFile(languageFile.read());
+
     }
 
 }

@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-public class DetectLanguageTest {
+public class LanguageDetectorTest {
 
     @Test
     public void testLanguageRecognitionBasedOnText(){
