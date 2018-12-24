@@ -22,6 +22,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
     // https://mvnrepository.com/artifact/one.util/streamex
     compile group: 'one.util', name: 'streamex', version: '0.6.1'
+    compile 'com.detectlanguage:detectlanguage:1.1.0'
 
 }
 
