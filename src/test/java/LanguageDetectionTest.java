@@ -52,7 +52,7 @@ public class LanguageDetectionTest {
     public void testLanguageRecognitionBasedOnFileWithLettersFrequencyInLanguages(String text, String expectedLanguage) {
         HashMap <String, Double> letterFreqMap = letterFrequency.analyze(text);
         List <Language> multilanguageList = multiLanguage.getAvailableLanguages();
-        String result = languageDetection.analyze(text);
+
         assertThat(result, is(expectedLanguage));
     }
 

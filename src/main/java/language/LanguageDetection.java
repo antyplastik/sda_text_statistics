@@ -1,29 +1,46 @@
 package language;
 
+import read_from_file.FileReader;
 import text_analyzers.Analyzer;
 import text_analyzers.LetterFrequency;
 
-public class LanguageDetection implements Analyzer<String> {
+import java.util.HashMap;
+import java.util.Map;
+
+public class LanguageDetection {
 
     private String detecLanguageUrl = "detectlanguage.com";
 
     public LanguageDetection() {
     }
 
-    public String offlineAnalyze(LetterFrequency letterFrequency, MultiLanguage multiLanguage) {
 
-        letterFrequency.getLettersFreq();
+    private String offlineAnalyze(LetterFrequency letterFrequency, MultiLanguage availableLanguages) {
+        HashMap<String, Double> stdDeviationsOfLanguages = new HashMap<>();
+        HashMap<String, Double> letterFreqMap = letterFrequency.getLettersFreq();
+        double letterFreqAverage = letterFrequency.getLetterFrequencyAverage();
+        double languageStdDev = 0;
+
+
+        for (Language language : availableLanguages.getAvailableLanguages()) {
+            HashMap<String, Double> languageMap = language.getLetterStat();
+
+            for (Map.Entry<String, Double> entry : letterFreqMap.entrySet()) {
+                String tmpStr = entry.getKey();
+                if (languageMap.containsKey(tmpStr)) {
+                    languageStdDev = languageStdDev + languageMap.get(tmpStr);
+                }
+            }
+
+            stdDeviationsOfLanguages.put(language.getLanguageLabel(),languageStdDev);
+        }
 
         return null;
     }
 
-    public String onlineAnalyze() {
+    private String onlineAnalyze(String string) {
 
-        return null;
-    }
 
-    @Override
-    public String analyze(String string) {
         return null;
     }
 }

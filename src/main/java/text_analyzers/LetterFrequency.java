@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
 public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
 
     private HashMap<String, Double> lettersFreq;
+    double letterFrequencyAverage;
     private int sumOfSigns;
 
     public LetterFrequency() {
@@ -28,6 +29,7 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
                 .forEach(c -> addToHashMap((char) c));
 
         lettersFreq = getSignsFreqPercent(lettersFreq, 4);
+        letterFrequencyAverage = calcAverage(lettersFreq);
 
         return lettersFreq;
     }
@@ -39,10 +41,6 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
             lettersFreq.put((letter + ""), (double) 1);
     }
 
-    public HashMap<String, Double> getLettersFreq() {
-        return lettersFreq;
-    }
-
     private HashMap<String, Double> getSignsFreqPercent(HashMap<String, Double> hashMap, int precision) {
         HashMap<String, Double> resultMap = new HashMap<>();
 
@@ -50,6 +48,25 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
             resultMap.put(entry.getKey(), (Precision.round(((entry.getValue() * 100) / sumOfSigns), precision)));
 
         return resultMap;
+    }
+
+    private Double calcAverage(HashMap <String, Double> letterFrequency) {
+        double tmp = 0;
+
+        for (Map.Entry<String, Double> entry : letterFrequency.entrySet()){
+            if (!entry.getKey().equals("")){
+                tmp = tmp + entry.getValue();
+            }
+        }
+            return tmp / letterFrequency.size();
+    }
+
+    public HashMap<String, Double> getLettersFreq() {
+        return lettersFreq;
+    }
+
+    public double getLetterFrequencyAverage() {
+        return letterFrequencyAverage;
     }
 
     @Override

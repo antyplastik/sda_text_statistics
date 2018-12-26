@@ -31,7 +31,7 @@ public class MultiAnalyzerTest {
 
         taskList.add(new NumberOfWords());
         taskList.add(new LetterFrequency());
-        taskList.add(new LongestWords(1,10));
+        taskList.add(new LongestWords(1, 10));
         taskList.add(new MostPopularWords(10));
 
         multiAnalyzer = new MultiAnalyzer(taskList);
@@ -55,7 +55,6 @@ public class MultiAnalyzerTest {
                 .mapToDouble(d -> d).sum();
 
         assertThat(expectedValue, is(closeTo(100, 0.01)));
-
     }
 
     @Test
