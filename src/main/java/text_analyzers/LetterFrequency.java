@@ -24,7 +24,7 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
 
         stringStream
                 .map(x -> !(Character.isLetter(x) || (Character.isWhitespace(x) && x != '\n' && x != ' ')) ? x = ' ' : x)
-                .map(Character::toUpperCase)
+                .map(Character::toLowerCase)
                 .forEach(c -> addToHashMap((char) c));
 
         lettersFreq = getSignsFreqPercent(lettersFreq, 4);

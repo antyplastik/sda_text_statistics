@@ -1,5 +1,6 @@
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import language.Language;
 import language.LanguageDetection;
 import language.MultiLanguage;
 import org.junit.Before;
@@ -13,6 +14,7 @@ import read_from_file.FileReader;
 import text_analyzers.LetterFrequency;
 
 import java.util.HashMap;
+import java.util.List;
 
 @RunWith(JUnitParamsRunner.class)
 public class LanguageDetectionTest {
@@ -49,6 +51,7 @@ public class LanguageDetectionTest {
     @Test
     public void testLanguageRecognitionBasedOnFileWithLettersFrequencyInLanguages(String text, String expectedLanguage) {
         HashMap <String, Double> letterFreqMap = letterFrequency.analyze(text);
+        List <Language> multilanguageList = multiLanguage.getAvailableLanguages();
         String result = languageDetection.analyze(text);
         assertThat(result, is(expectedLanguage));
     }

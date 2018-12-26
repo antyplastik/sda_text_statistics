@@ -1,5 +1,5 @@
 # Language  Detector
-> A simple program to detect the language of the text offline i online.
+> A simple program to detect the language of the text offline and online.
 
 ## General info
 The program was created as one of the tasks to be done at home while learning programming in Java.

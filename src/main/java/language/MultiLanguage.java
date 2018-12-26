@@ -36,10 +36,10 @@ public class MultiLanguage {
                 i++;
             }
         }
+        optimalizeLanguageMaps();
     }
 
     private void addSignStatsToLangObj(String label, String key, Double value) {
-//        String label = lang.getLanguageLabel();
         int index = 0;
         for (Language language : availableLanguages) {
             if (language.getLanguageLabel().equals(label)) {
@@ -48,6 +48,15 @@ public class MultiLanguage {
                 break;
             } else
                 index++;
+        }
+    }
+
+    private void optimalizeLanguageMaps(){
+        int languageIndex = 0;
+        for (Language language : availableLanguages) {
+            language.optimalize();
+            availableLanguages.set(languageIndex,language);
+            languageIndex++;
         }
     }
 
