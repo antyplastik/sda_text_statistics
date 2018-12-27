@@ -15,30 +15,48 @@ public class LanguageDetection {
     }
 
 
-    private String offlineAnalyze(LetterFrequency letterFrequency, MultiLanguage availableLanguages) {
-        HashMap<String, Double> stdDeviationsOfLanguages = new HashMap<>();
-        HashMap<String, Double> letterFreqMap = letterFrequency.getLettersFreq();
-        double letterFreqAverage = letterFrequency.getLetterFrequencyAverage();
-        double languageStdDev = 0;
+    public String offlineAnalyze(LetterFrequency letterFrequency, MultiLanguage availableLanguages) {
+//        HashMap<String, Double> stdDeviationsOfLanguages = new HashMap<>();
+        HashMap<String, Double> meanSquaredErrForLanguages = new HashMap<>();
+        HashMap<String, Double> freqMapFromText = letterFrequency.getLettersFreq();
+//        double letterFreqAverage = letterFrequency.getLetterFrequencyAverage();
+        double tmpMeanSquaredErr = 0;
+        double meanSquaredErrMIN = 0;
+        int tmpIndex = 0;
+        String result = "";
 
 
         for (Language language : availableLanguages.getAvailableLanguages()) {
-            HashMap<String, Double> languageMap = language.getLetterStat();
+            HashMap<String, Double> referenceLanguageMap = language.getLetterStat();
 
-            for (Map.Entry<String, Double> entry : letterFreqMap.entrySet()) {
+            for (Map.Entry<String, Double> entry : freqMapFromText.entrySet()) {
                 String tmpStr = entry.getKey();
-                if (languageMap.containsKey(tmpStr)) {
-                    languageStdDev = languageStdDev + languageMap.get(tmpStr);
+                tmpIndex = 0;
+                if (referenceLanguageMap.containsKey(tmpStr)) {
+                    double lettValFromRef = referenceLanguageMap.get(tmpStr);
+                    double lettValFromText = freqMapFromText.get(tmpStr);
+                    tmpMeanSquaredErr = tmpMeanSquaredErr + Math.pow((lettValFromRef - lettValFromText), 2);
+//                    tmpIndex++;
                 }
             }
-
-            stdDeviationsOfLanguages.put(language.getLanguageLabel(),languageStdDev);
+//            tmpMeanSquaredErr = tmpMeanSquaredErr / tmpIndex;
+            meanSquaredErrForLanguages.put(language.getLanguageLabel(), tmpMeanSquaredErr);
         }
 
-        return null;
+        tmpIndex = 0;
+        for (Map.Entry entry : meanSquaredErrForLanguages.entrySet()) {
+            double tmp = (double) entry.getValue();
+            if (tmp < meanSquaredErrMIN || tmpIndex == 0) {
+                meanSquaredErrMIN = tmp;
+                result = entry.getKey().toString();
+            }
+            tmpIndex++;
+        }
+
+        return result;
     }
 
-    private String onlineAnalyze(String string) {
+    public String onlineAnalyze(String string) {
 
 
         return null;

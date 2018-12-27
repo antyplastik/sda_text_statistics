@@ -1,6 +1,5 @@
 package text_analyzers;
 
-import one.util.streamex.DoubleStreamEx;
 import org.apache.commons.math3.util.Precision;
 
 import java.util.HashMap;
@@ -10,8 +9,9 @@ import java.util.stream.IntStream;
 public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
 
     private HashMap<String, Double> lettersFreq;
-    double letterFrequencyAverage;
-    private int sumOfSigns;
+    private double letterFrequencyAverage;
+    private int numberOfSignsInMap;
+    private int numberOfSigns;
 
     public LetterFrequency() {
         lettersFreq = new HashMap<>();
@@ -20,7 +20,7 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
     @Override
     public HashMap<String, Double> analyze(String string) {
 
-        this.sumOfSigns = string.length();
+        this.numberOfSigns = string.length();
         IntStream stringStream = string.chars();
 
         stringStream
@@ -45,20 +45,22 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
         HashMap<String, Double> resultMap = new HashMap<>();
 
         for (Map.Entry<String, Double> entry : hashMap.entrySet())
-            resultMap.put(entry.getKey(), (Precision.round(((entry.getValue() * 100) / sumOfSigns), precision)));
+            resultMap.put(entry.getKey(), (Precision.round(((entry.getValue() * 100) / numberOfSigns), precision)));
 
         return resultMap;
     }
 
-    private Double calcAverage(HashMap <String, Double> letterFrequency) {
+    private Double calcAverage(HashMap<String, Double> letterFrequency) {
         double tmp = 0;
+        numberOfSignsInMap = 0;
 
-        for (Map.Entry<String, Double> entry : letterFrequency.entrySet()){
-            if (!entry.getKey().equals("")){
+        for (Map.Entry<String, Double> entry : letterFrequency.entrySet()) {
+            if (!entry.getKey().equals(" ")) {
                 tmp = tmp + entry.getValue();
+                numberOfSignsInMap++;
             }
         }
-            return tmp / letterFrequency.size();
+        return tmp / numberOfSignsInMap;
     }
 
     public HashMap<String, Double> getLettersFreq() {
@@ -67,6 +69,10 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
 
     public double getLetterFrequencyAverage() {
         return letterFrequencyAverage;
+    }
+
+    public int getNumberOfSignsInMap() {
+        return numberOfSignsInMap;
     }
 
     @Override
