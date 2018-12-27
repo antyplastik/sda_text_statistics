@@ -1,8 +1,11 @@
 package read_from_file;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class FileReader implements Readable<String> {
 
@@ -38,6 +41,25 @@ public class FileReader implements Readable<String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return readedFile;
+    }
+
+    @Override
+    public String readFromResources(String filePath) {
+        Path path = null;
+        String readedFile = "";
+        try {
+            path = Paths.get(getClass().getClassLoader().getResource(filePath).toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        try {
+            byte[] fileBytes = Files.readAllBytes(path);
+            readedFile = new String(fileBytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return readedFile;
     }
 

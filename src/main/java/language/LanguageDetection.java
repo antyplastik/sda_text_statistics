@@ -1,15 +1,17 @@
 package language;
 
-import read_from_file.FileReader;
-import text_analyzers.Analyzer;
+import com.detectlanguage.errors.APIError;
 import text_analyzers.LetterFrequency;
+
+import com.detectlanguage.DetectLanguage;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class LanguageDetection {
 
-    private String detecLanguageUrl = "detectlanguage.com";
+    private HashMap <String, String> langDetectAPIdict;
+    private String apiKey = "980a6dd66173cdf8739a042175a572a0";
 
     public LanguageDetection() {
     }
@@ -42,7 +44,7 @@ public class LanguageDetection {
                 }
             }
             tmpMeanSquaredErr = tempMeanSquareMap.entrySet().stream()
-                    .mapToDouble(entry-> entry.getValue())
+                    .mapToDouble(entry -> entry.getValue())
                     .sum();
             tmpMeanSquaredErr = tmpMeanSquaredErr / tempMeanSquareMap.size();
             meanSquaredErrForLanguages.put(language.getLanguageLabel(), tmpMeanSquaredErr);
@@ -63,8 +65,28 @@ public class LanguageDetection {
     }
 
     public String onlineAnalyze(String string) {
+        DetectLanguage.ssl = true;
+        DetectLanguage.apiKey = apiKey;
 
+        try {
+            return DetectLanguage.simpleDetect(string);
+        } catch (APIError apiError) {
+            apiError.printStackTrace();
+        }
+        return "";
+    }
 
-        return null;
+    public String useAPIdict(String apiShortcut){
+        return langDetectAPIdict.get(apiShortcut);
+    }
+
+    public void addToAPIdict(String strFromFile){
+        langDetectAPIdict = new HashMap<>();
+
+        String[] shortLangLines = strFromFile.split("\n");
+        for(String line : shortLangLines){
+            String[] lineArr = line.split(",");
+            langDetectAPIdict.put(lineArr[0],lineArr[1]);
+        }
     }
 }

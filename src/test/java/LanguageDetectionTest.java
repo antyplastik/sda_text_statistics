@@ -19,16 +19,19 @@ import java.util.List;
 @RunWith(JUnitParamsRunner.class)
 public class LanguageDetectionTest {
 
-    private String linuxFilePath = "/home/kamil/Workspace/JAVA_SDA/sda_text_statistics/letter_freq_in_languages.csv";
+    private String letterFreqFilePath = "/home/kamil/Workspace/JAVA_SDA/sda_text_statistics/src/main/resources/letter_freq_in_languages.csv";
+    private String apiDictFilePath = "/home/kamil/Workspace/JAVA_SDA/sda_text_statistics/src/main/resources/languages_LanguageDetectionAPI.csv";
 
     private FileReader languageFile;
+    private FileReader apiDictFile;
     private LanguageDetection languageDetection;
     private MultiLanguage multiLanguage = new MultiLanguage();
     private LetterFrequency letterFrequency;
 
     @Before
     public void setUp() {
-        languageFile = new FileReader(linuxFilePath);
+        languageFile = new FileReader(letterFreqFilePath);
+        apiDictFile = new FileReader(apiDictFilePath);
         multiLanguage.setLanguageListFromFile(languageFile.read());
         letterFrequency = new LetterFrequency();
 
@@ -60,6 +63,16 @@ public class LanguageDetectionTest {
                                 "Vér lofum þitt heilaga, heilaga nafn!\n" +
                                 "Úr sólkerfum himnanna hnýta þér krans\n" +
                                 "þínir herskarar, tímanna safn.", "Icelandic"
+                },
+                new Object[]{
+                        "Kde domov můj, kde domov můj,\n" +
+                                "voda hučí po lučinách,\n" +
+                                "bory šumí po skalinách,\n" +
+                                "v sadě skví se jara květ,\n" +
+                                "zemský ráj to na pohled!\n" +
+                                "A to je ta krásná země,\n" +
+                                "země česká domov můj,\n" +
+                                "země česká domov můj!", "Czech"
                 }
         };
     }
@@ -73,8 +86,12 @@ public class LanguageDetectionTest {
         assertThat(result, is(expectedLanguage));
     }
 
+    @Parameters(method = "testStrings")
     @Test
-    public void testCompareResultsWithDetectLanguageSite() {
+    public void testCompareResultsWithDetectLanguageSite(String text, String expectedLanguage) {
+        languageDetection.addToAPIdict(apiDictFile.readFromResources("languages_LanguageDetectionAPI.csv"));
 
+        String result = languageDetection.useAPIdict(languageDetection.onlineAnalyze(text));
+        assertThat(result,is(expectedLanguage));
     }
 }
