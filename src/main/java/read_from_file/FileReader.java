@@ -30,7 +30,6 @@ public class FileReader implements Readable<String> {
         return detectedOS = osName[0].toLowerCase();
     }
 
-
     @Override
     public String read() {
         String readedFile = "";
@@ -44,7 +43,6 @@ public class FileReader implements Readable<String> {
         return readedFile;
     }
 
-    @Override
     public String readFromResources(String filePath) {
         Path path = null;
         String readedFile = "";
