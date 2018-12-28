@@ -82,6 +82,12 @@ public class LongestWords implements Analyzer<Map<String, Integer>> {
 
     @Override
     public String toString() {
-        return super.toString();
+        String result = "The " + howManyWords + " longest words repeated " + howManyAppeared + " time(s):\n"
+                + resultMap.entrySet()
+                .stream()
+                .map(entry -> entry.getKey() + "\t" + entry.getValue() + "\n")
+                .collect(Collectors.joining());
+
+        return result;
     }
 }

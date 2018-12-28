@@ -18,6 +18,9 @@ public class FileReader implements Readable<String> {
 //        return ourInstance;
 //    }
 
+    public FileReader() {
+    }
+
     public FileReader(String pathToFile) {
         if (checkOS() == "windows")
             this.pathToFile = pathToFile.replaceAll("/", "\\");
@@ -31,32 +34,22 @@ public class FileReader implements Readable<String> {
     }
 
     @Override
-    public String read() {
+    public String read() throws IOException {
         String readedFile = "";
-        try {
-            byte[] fileBytes = Files.readAllBytes(Paths.get(pathToFile));
-            readedFile = new String(fileBytes);
+        byte[] fileBytes = Files.readAllBytes(Paths.get(pathToFile));
+        readedFile = new String(fileBytes);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return readedFile;
     }
 
-    public String readFromResources(String filePath) {
+    public String readFromResources(String filePath) throws URISyntaxException, IOException {
         Path path = null;
         String readedFile = "";
-        try {
-            path = Paths.get(getClass().getClassLoader().getResource(filePath).toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        try {
-            byte[] fileBytes = Files.readAllBytes(path);
-            readedFile = new String(fileBytes);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        path = Paths.get(getClass().getClassLoader().getResource(filePath).toURI());
+
+        byte[] fileBytes = Files.readAllBytes(path);
+        readedFile = new String(fileBytes);
 
         return readedFile;
     }

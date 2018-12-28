@@ -51,6 +51,12 @@ public class MostPopularWords implements Analyzer<HashMap<String, Integer>> {
 
     @Override
     public String toString() {
-        return super.toString();
+        String result = "The " + howManyWords + " most popular words in text:\n"
+                + resultMap.entrySet()
+                .stream()
+                .map(entry -> entry.getKey() + "\t" + entry.getValue() + "\n")
+                .collect(Collectors.joining());
+
+        return result;
     }
 }

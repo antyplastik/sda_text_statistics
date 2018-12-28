@@ -4,6 +4,7 @@ import org.apache.commons.math3.util.Precision;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
@@ -77,6 +78,14 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
 
     @Override
     public String toString() {
-        return super.toString();
+        String result = "Number of signs in map: "+numberOfSignsInMap+"\n"
+                +"Letter and numbers frequency average: "+letterFrequencyAverage+"\n"
+                +"Sign map: "
+                + lettersFreq.entrySet()
+                .stream()
+                .map(entry->entry.getKey() + "\t" + entry.getValue() + "\n")
+                .collect(Collectors.joining());
+
+        return result;
     }
 }

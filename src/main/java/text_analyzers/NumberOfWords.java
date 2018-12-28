@@ -2,6 +2,7 @@ package text_analyzers;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class NumberOfWords implements Analyzer<Integer> {
@@ -22,7 +23,10 @@ public class NumberOfWords implements Analyzer<Integer> {
 //        String[] tmp = string.split("\\s");
         Stream<String> stream = Arrays.stream(string.split("\\s"));
         stream.forEach(string1 -> addToHashMap(string1));
-        numberOfWords = words.values().stream().mapToInt(Integer::intValue).sum();
+        numberOfWords = words.values()
+                .stream()
+                .mapToInt(Integer::intValue)
+                .sum();
         return numberOfWords;
     }
 
@@ -30,7 +34,7 @@ public class NumberOfWords implements Analyzer<Integer> {
         if (words.containsKey(string))
             words.put(string, words.get(string) + 1);
         else
-            words.put(string,1);
+            words.put(string, 1);
     }
 
     public int getfromHashMap(String string) {
@@ -39,6 +43,8 @@ public class NumberOfWords implements Analyzer<Integer> {
 
     @Override
     public String toString() {
-        return super.toString();
+        String result = "The text has " + numberOfWords + " word(s)";
+
+        return result;
     }
 }

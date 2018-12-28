@@ -17,7 +17,7 @@ public class LanguageDetection {
     }
 
 
-    public String offlineAnalyze(LetterFrequency letterFrequency, MultiLanguage availableLanguages) {
+    public String offlineAnalyze(LetterFrequency letterFrequency, MultiLanguageOfflineList availableLanguages) {
 //        HashMap<String, Double> stdDeviationsOfLanguages = new HashMap<>();
         HashMap<String, Double> meanSquaredErrForLanguages = new HashMap<>();
         HashMap<String, Double> freqMapFromText = letterFrequency.getLettersFreq();

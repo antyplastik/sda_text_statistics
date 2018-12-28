@@ -1,5 +1,5 @@
 import language.Language;
-import language.MultiLanguage;
+import language.MultiLanguageOfflineList;
 import read_from_file.FileReader;
 
 import org.junit.Before;
@@ -8,7 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import java.util.List;
 
-public class MultiLanguageTest {
+public class MultiLanguageOfflineListTest {
 
     private FileReader languageFile;
     private String linuxFilePath = "/home/kamil/Workspace/JAVA_SDA/sda_text_statistics/letter_freq_in_languages.csv";
@@ -34,10 +34,10 @@ public class MultiLanguageTest {
 
     @Test
     public void generatingMapsContainingTheFrequencyOfLettersInAGivenLanguage(){
-        MultiLanguage multiLanguageList = new MultiLanguage();
-        multiLanguageList.setLanguageListFromFile(languageFile.read());
+        MultiLanguageOfflineList multiLanguageOfflineListList = new MultiLanguageOfflineList();
+        multiLanguageOfflineListList.setLanguageListFromFile(languageFile.read());
 
-        List <Language> languages = multiLanguageList.getAvailableLanguages();
+        List <Language> languages = multiLanguageOfflineListList.getAvailableLanguages();
 
         Language testLang = new Language("Ciapacki");
 

@@ -3,12 +3,12 @@ package language;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class MultiLanguage {
+public class MultiLanguageOfflineList {
 
     private static List<Language> availableLanguages;
     private final static String csvLineSeparator = ",";
 
-    public MultiLanguage() {
+    public MultiLanguageOfflineList() {
         availableLanguages = new ArrayList<>();
     }
 

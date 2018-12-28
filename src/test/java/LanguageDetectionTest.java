@@ -2,7 +2,7 @@ import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import language.Language;
 import language.LanguageDetection;
-import language.MultiLanguage;
+import language.MultiLanguageOfflineList;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,14 +25,14 @@ public class LanguageDetectionTest {
     private FileReader languageFile;
     private FileReader apiDictFile;
     private LanguageDetection languageDetection;
-    private MultiLanguage multiLanguage = new MultiLanguage();
+    private MultiLanguageOfflineList multiLanguageOfflineList = new MultiLanguageOfflineList();
     private LetterFrequency letterFrequency;
 
     @Before
     public void setUp() {
         languageFile = new FileReader(letterFreqFilePath);
         apiDictFile = new FileReader(apiDictFilePath);
-        multiLanguage.setLanguageListFromFile(languageFile.read());
+        multiLanguageOfflineList.setLanguageListFromFile(languageFile.read());
         letterFrequency = new LetterFrequency();
 
         languageDetection = new LanguageDetection();
@@ -81,8 +81,8 @@ public class LanguageDetectionTest {
     @Test
     public void testLanguageRecognitionBasedOnFileWithLettersFrequencyInLanguages(String text, String expectedLanguage) {
         HashMap <String, Double> letterFreqMap = letterFrequency.analyze(text);
-        List <Language> multilanguageList = multiLanguage.getAvailableLanguages();
-        String result = languageDetection.offlineAnalyze(letterFrequency,multiLanguage);
+        List <Language> multilanguageList = multiLanguageOfflineList.getAvailableLanguages();
+        String result = languageDetection.offlineAnalyze(letterFrequency, multiLanguageOfflineList);
         assertThat(result, is(expectedLanguage));
     }
 
