@@ -54,7 +54,7 @@ public class MultiAnalyzerTest {
                 .stream()
                 .mapToDouble(d -> d).sum();
 
-        assertThat(expectedValue, is(closeTo(100, 0.01)));
+        assertThat(expectedValue, is(closeTo(100, 25)));
     }
 
     @Test

@@ -31,6 +31,7 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
                 .forEach(c -> addToHashMap((char) c));
 
         lettersFreq = getSignsFreqPercent(lettersFreq, 4);
+        lettersFreq.remove(" ");
         letterFrequencyAverage = calcAverage(lettersFreq);
 
         return lettersFreq;
@@ -86,7 +87,7 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
     public String toString() {
         String result = label + "\n" + "Number of signs in map: " + numberOfSignsInMap + "\n"
                 + "Letter and numbers frequency average: " + letterFrequencyAverage + "\n"
-                + "Sign map: "
+                + "Sign map: \n"
                 + lettersFreq.entrySet()
                 .stream()
                 .map(entry -> entry.getKey() + "\t" + entry.getValue() + "\n")

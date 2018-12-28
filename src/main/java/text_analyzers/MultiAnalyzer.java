@@ -38,7 +38,7 @@ public class MultiAnalyzer{
         for (Analyzer analyzer : analyzers)
             result.add(analyzer.getLabel());
 
-        return null;
+        return result;
     }
 
     public List<String> getResultOfAnalyzis(){
