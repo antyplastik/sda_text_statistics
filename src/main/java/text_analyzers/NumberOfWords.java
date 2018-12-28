@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 
 public class NumberOfWords implements Analyzer<Integer> {
 
+    private final String label = "Number of Words Analyzer";
     private int numberOfWords;
     private HashMap<String, Integer> words;
 
@@ -37,8 +38,9 @@ public class NumberOfWords implements Analyzer<Integer> {
             words.put(string, 1);
     }
 
-    public int getfromHashMap(String string) {
-        return words.get(string);
+    @Override
+    public String getLabel() {
+        return label;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package language;
 
 import com.detectlanguage.errors.APIError;
+import text_analyzers.Analyzer;
 import text_analyzers.LetterFrequency;
 
 import com.detectlanguage.DetectLanguage;

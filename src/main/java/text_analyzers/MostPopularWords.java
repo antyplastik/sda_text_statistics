@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class MostPopularWords implements Analyzer<HashMap<String, Integer>> {
 
+    private final String label = "Most Popular Words Analyzer";
     private int howManyWords;
     private HashMap<String, Integer> resultMap;
 
@@ -50,8 +51,13 @@ public class MostPopularWords implements Analyzer<HashMap<String, Integer>> {
     }
 
     @Override
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
     public String toString() {
-        String result = "The " + howManyWords + " most popular words in text:\n"
+        String result = label + "\n" + "The " + howManyWords + " most popular words in text:\n"
                 + resultMap.entrySet()
                 .stream()
                 .map(entry -> entry.getKey() + "\t" + entry.getValue() + "\n")

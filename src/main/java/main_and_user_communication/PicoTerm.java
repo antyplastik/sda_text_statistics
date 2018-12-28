@@ -1,13 +1,16 @@
 package main_and_user_communication;
 
+import language.Language;
+import language.LanguageDetection;
+import language.MultiLanguageOfflineList;
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import read_from_file.FileReader;
-import text_analyzers.LetterFrequency;
-import text_analyzers.MultiAnalyzer;
+import text_analyzers.*;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 @CommandLine.Command(name = "text_statistics", description = "Language detector\nYou can detect language of input text (pasted text) or file", version = "v1.0")
 public class PicoTerm implements Runnable {
@@ -42,10 +45,12 @@ public class PicoTerm implements Runnable {
     @Override
     public void run() {
         FileReader fileReader;
-        MultiAnalyzer textAnalyzerList;
+        MultiAnalyzer textAnalyzerList = new MultiAnalyzer();
         LetterFrequency letterFrequencyAnalize;
+        LanguageDetection languageDetection = new LanguageDetection();
         String input = "";
         String result = "";
+        String availableLanguagesStr = "";
 
         if (inputParametersArgs.length != 0) {
             input = inputParametersArgs[0];
@@ -58,21 +63,36 @@ public class PicoTerm implements Runnable {
                     e.printStackTrace();
                 }
             }
+            textAnalyzerList.addToAnalyzis(new LetterFrequency());
 
             if (numberOfWordsFlag) {
-
+                textAnalyzerList.addToAnalyzis(new NumberOfWords());
             }
 
-            if(longestWordsFlag){
-
+            if (longestWordsFlag) {
+                textAnalyzerList.addToAnalyzis(new LongestWords(1, 10));
             }
 
-            if(mostPopularWordsFlag){
-
+            if (mostPopularWordsFlag) {
+                textAnalyzerList.addToAnalyzis(new MostPopularWords(10));
             }
 
             if (onlineDetectionFlag) {
+                languageDetection.onlineAnalyze(input);
+            } else {
+                LetterFrequency lF;
+                FileReader fR = new FileReader();
+                MultiLanguageOfflineList mLoL = new MultiLanguageOfflineList();
 
+                try {
+                    mLoL.setLanguageListFromFile(fR.readFromResources("letter_freq_in_languages.csv"));
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                LetterFrequency analyzer = (LetterFrequency) textAnalyzerList.getAnalyzer("Letter and Numbers Frequency Analyzer");
+                languageDetection.offlineAnalyze(analyzer, mLoL);
             }
 
             if (printAvailableLang) {

@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 
 public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
 
+    private final String label = "Letter and Numbers Frequency Analyzer";
     private HashMap<String, Double> lettersFreq;
     private double letterFrequencyAverage;
     private int numberOfSignsInMap;
@@ -25,7 +26,7 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
         IntStream stringStream = string.chars();
 
         stringStream
-                .map(x -> !(Character.isLetter(x) || (Character.isWhitespace(x) && x != '\n' && x != ' ')) ? x = ' ' : x)
+                .map(x -> !(Character.isLetter(x) || (Character.isWhitespace(x) && x != '\n' && x != ' ' && x != '\'')) ? x = ' ' : x)
                 .map(Character::toLowerCase)
                 .forEach(c -> addToHashMap((char) c));
 
@@ -77,13 +78,18 @@ public class LetterFrequency implements Analyzer<HashMap<String, Double>> {
     }
 
     @Override
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
     public String toString() {
-        String result = "Number of signs in map: "+numberOfSignsInMap+"\n"
-                +"Letter and numbers frequency average: "+letterFrequencyAverage+"\n"
-                +"Sign map: "
+        String result = label + "\n" + "Number of signs in map: " + numberOfSignsInMap + "\n"
+                + "Letter and numbers frequency average: " + letterFrequencyAverage + "\n"
+                + "Sign map: "
                 + lettersFreq.entrySet()
                 .stream()
-                .map(entry->entry.getKey() + "\t" + entry.getValue() + "\n")
+                .map(entry -> entry.getKey() + "\t" + entry.getValue() + "\n")
                 .collect(Collectors.joining());
 
         return result;

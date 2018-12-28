@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class LongestWords implements Analyzer<Map<String, Integer>> {
 
+    private final String label = "Longest Words Analyzer";
     private final int howManyWords;
     private int howManyAppeared;
     private Map<String, Integer> wordLengthMap;
@@ -81,8 +82,13 @@ public class LongestWords implements Analyzer<Map<String, Integer>> {
     }
 
     @Override
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
     public String toString() {
-        String result = "The " + howManyWords + " longest words repeated " + howManyAppeared + " time(s):\n"
+        String result = label + "\n" + "The " + howManyWords + " longest words repeated " + howManyAppeared + " time(s):\n"
                 + resultMap.entrySet()
                 .stream()
                 .map(entry -> entry.getKey() + "\t" + entry.getValue() + "\n")
