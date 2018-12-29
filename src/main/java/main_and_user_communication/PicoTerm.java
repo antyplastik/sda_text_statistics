@@ -24,13 +24,16 @@ public class PicoTerm implements Runnable {
     @Option(names = {"-f", "--file"}, description = "Input is a file (or files)")
     private boolean inputIsAFileFlag;
 
-    @Option(names = {"-o", "--online"}, description = "Online  language detection (default offline)")
+    @Option(names = {"-l", "--offline"}, description = "Offline  language detection")
+    private boolean offlineDetectionFlag;
+
+    @Option(names = {"-o", "--online"}, description = "Online  language detection")
     private boolean onlineDetectionFlag;
 
-    @Option(names = {"-n", "--number-of-words"}, description = "Online  language detection (default offline)")
+    @Option(names = {"-n", "--number-of-words"}, description = "Prints number of words in the text")
     private boolean numberOfWordsFlag;
 
-    @Option(names = {"-l", "--letter-frequency"}, description = "Prints frequency of each letter and number")
+    @Option(names = {"-r", "--letter-frequency"}, description = "Prints frequency of each letter and number")
     private boolean letterFrequencyFlag;
 
     @Option(names = {"-g", "--longest-words"}, description = "Prints n of longest words from text")
@@ -74,8 +77,10 @@ public class PicoTerm implements Runnable {
 
             }
 
+            if (letterFrequencyFlag) {
+                textAnalyzerList.addToAnalyzis(new LetterFrequency());
+            }
 
-            textAnalyzerList.addToAnalyzis(new LetterFrequency());
 
             if (numberOfWordsFlag) {
                 textAnalyzerList.addToAnalyzis(new NumberOfWords());
@@ -94,16 +99,25 @@ public class PicoTerm implements Runnable {
                 printAvailableLang = false;
             }
 
+            textAnalyzerList.performAnalyzis(input);
+
         } else {
 
         }
 
-        textAnalyzerList.performAnalyzis(input);
 
         if (onlineDetectionFlag) {
-            languageResult = "Online detection result: " + languageDetection.onlineAnalyze(input) + "\n";
-        } else {
-            LetterFrequency lF;
+            try {
+                languageDetection.addToAPIdict(fileReader.readFromResources("languages_LanguageDetectionAPI.csv"));
+            } catch (URISyntaxException e) {
+                System.out.println("[ERR] Internet connection err");
+            } catch (IOException e) {
+                System.out.println("[ERR] Wrong path to the file or file name");
+            }
+            languageResult = languageResult + "Online detection result: " + languageDetection.useAPIdict(languageDetection.onlineAnalyze(input));
+        }
+        if (offlineDetectionFlag) {
+            LetterFrequency lF = new LetterFrequency();
             FileReader fR = new FileReader();
             MultiLanguageOfflineList mLoL = new MultiLanguageOfflineList();
 
@@ -114,13 +128,24 @@ public class PicoTerm implements Runnable {
             } catch (IOException e) {
                 System.out.println("[ERR] Wrong path to the file or file name");
             }
-            lF = (LetterFrequency) textAnalyzerList.getAnalyzer("Letter and Numbers Frequency Analyzer");
-            languageResult = "Offline detection result: " + languageDetection.offlineAnalyze(lF, mLoL);
+
+//            lF = (LetterFrequency) textAnalyzerList.getAnalyzer("Letter and Numbers Frequency Analyzer");
+            lF.analyze(input);
+            
+            if (!languageResult.equals(""))
+                languageResult = languageResult + "\n";
+
+            languageResult = languageResult + "Offline detection result: " + languageDetection.offlineAnalyze(lF, mLoL);
         }
 
-        System.out.println("Results:" + "\n" + textAnalyzerList.getResultOfAnalyzis().stream()
-                .map(s -> s + '\n')
-                .collect(Collectors.joining()) + languageResult);
+        if (!textAnalyzerList.getAnalyzerLabel().isEmpty())
+            System.out.println("Results:" + "\n" + textAnalyzerList.getResultOfAnalyzis().stream()
+                    .map(s -> s + '\n')
+                    .collect(Collectors.joining()) + languageResult);
+        else if (!languageResult.equals(""))
+            System.out.println(languageResult);
+        else
+            System.out.println("You didn't chose any text analysis");
 
     }
 }
