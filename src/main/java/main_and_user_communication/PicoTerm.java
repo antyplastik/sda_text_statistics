@@ -61,7 +61,7 @@ public class PicoTerm implements Runnable {
     @Override
     public void run() {
 
-        if (!inputParametersArgs.equals(null)) {
+        if (inputParametersArgs != null) {
             input = inputParametersArgs;
 
             if (inputIsAFileFlag) {
@@ -114,7 +114,7 @@ public class PicoTerm implements Runnable {
             } catch (IOException e) {
                 System.out.println("[ERR] Wrong path to the file or file name");
             }
-            languageResult = languageResult + "Online detection result: " + languageDetection.useAPIdict(languageDetection.onlineAnalyze(input));
+            languageResult = languageResult + "Online language detection result: " + languageDetection.useAPIdict(languageDetection.onlineAnalyze(input));
         }
         if (offlineDetectionFlag) {
             LetterFrequency lF = new LetterFrequency();
@@ -131,11 +131,11 @@ public class PicoTerm implements Runnable {
 
 //            lF = (LetterFrequency) textAnalyzerList.getAnalyzer("Letter and Numbers Frequency Analyzer");
             lF.analyze(input);
-            
+
             if (!languageResult.equals(""))
                 languageResult = languageResult + "\n";
 
-            languageResult = languageResult + "Offline detection result: " + languageDetection.offlineAnalyze(lF, mLoL);
+            languageResult = languageResult + "Offline language detection result: " + languageDetection.offlineAnalyze(lF, mLoL);
         }
 
         if (!textAnalyzerList.getAnalyzerLabel().isEmpty())

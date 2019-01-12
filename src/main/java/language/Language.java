@@ -10,11 +10,11 @@ public class Language {
 
     public Language(String languageLabel) {
         this.languageLabel = languageLabel;
-        this.letterStat = new HashMap<String, Double>();
+        this.letterStat = new HashMap<>();
     }
 
     public void addToLetterStatMap(String key, Double value) {
-        if (!key.equals(null) || !key.equals(""))
+        if (key == null || !key.equals(""))
             letterStat.put(key, value);
     }
 
